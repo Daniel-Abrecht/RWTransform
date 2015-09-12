@@ -1,0 +1,17 @@
+#ifndef RW_MODE
+  #include <stdint.h>
+  #include <rw.hc>
+#endif
+
+#define STNAME bitmap_file_header
+
+RW_BEGIN((
+  endianess = RW_LITTLE_ENDIAN;
+))
+
+RW_SMEMBER( uint16_t, 1, magic_number )
+RW_SMEMBER( uint32_t, 1, file_size )
+RW_RESERVED( 4 )
+RW_SMEMBER( uint32_t, 1, bmi_offset )
+
+RW_END()
